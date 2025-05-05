@@ -10,9 +10,16 @@
  *
  * Learn more at https://developers.cloudflare.com/workers/
  */
+import { createMovieClient } from "./client";
 
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
-		return new Response('Hello World!');
+		const movieClient = createMovieClient(env);
+
+		const listResponse = await movieClient.list({});
+		return new Response(JSON.stringify(listResponse, (key, value) =>
+			typeof value === "bigint" ? Number(value) : value), {
+			headers: { "Content-Type": "application/json" },
+		});
 	},
 } satisfies ExportedHandler<Env>;

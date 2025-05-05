@@ -10,10 +10,17 @@
 		"cf-typegen": "wrangler types"
 	},
 	"devDependencies": {
+		"@bufbuild/buf": "^1.53.0",
+		"@bufbuild/protoc-gen-es": "^2.2.5",
 		"@cloudflare/vitest-pool-workers": "^0.8.19",
 		"@cloudflare/workers-types": "^4.20250503.0",
 		"typescript": "^5.5.2",
 		"vitest": "~3.0.7",
 		"wrangler": "^4.14.1"
+	},
+	"dependencies": {
+		"@connectrpc/connect": "^2.0.2",
+		"@connectrpc/connect-node": "^2.0.2",
+		"@connectrpc/connect-web": "^2.0.2"
 	}
 }
