@@ -2,6 +2,8 @@ import { createConnectTransport } from "@connectrpc/connect-web";
 import { createClient } from "@connectrpc/connect";
 import { MovieService } from "./gen/movie_pb";
 
+// We need to create a custom fetch function to make this work with Cloudflare Workers
+// See discussion in https://github.com/connectrpc/connect-es/issues/577#issuecomment-2210103503
 function fetchProxy(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
 	// Create a new init object without mode and credentials
 	const newInit: RequestInit = { ...init };
