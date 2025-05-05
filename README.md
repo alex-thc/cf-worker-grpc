@@ -14,4 +14,7 @@ npx buf generate
 A simple `npx wrangler dev` would do.
 
 ## Run on Cloudflare
-
+```
+npx wrangler secret bulk .dev.vars
+npx wrangler deploy
+```
